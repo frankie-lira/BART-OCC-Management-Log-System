@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='/img/favicon.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profilecard.css') }}">
+
+    <div class="header">
+        <div class="navbar">
+            
+            <div class="logo" onclick="window.location.href='{{url_for('viewlog')}}'">
+                <img src="{{ url_for('static', filename='/img/bart_logo.svg') }}" />
+            </div>
+            
+            <div class="nav__links">
+                <ul>
+                    <li><a href="{{url_for('editor')}}">New Log</a></li>
+                    <li><a href="{{url_for('viewlog')}}">Current Logs</a></li>
+                    <li><a href="#">View Logs</a></li>
+                    <li><a href="#">Closed Logs</a></li>
+                    <li><a href="#">Attachments</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav__buttons">
+                <a href="{{ url_for('profile', username=current_user.username)}}"><button>Profile</button></a>
+                <a href="{{ url_for('logout')}}"><button>Logout</button></a>
+            </div>
+        </div>
+    </div>
+</head>
+
+
+<body>
+
+<h1>Welcome, {{user.username}} !</h1>
+<h1> Email: {{current_user.email}}
+</body>
+</html>

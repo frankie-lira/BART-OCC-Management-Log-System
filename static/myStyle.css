@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+  margin: 0%;
+  font-family: "Montserrat", sans-serif ;
+}
+
+/*================================HEADER/NAVBAR================================*/
+.editor{
+  margin-top: 30%;
+  padding-top: 60px;
+}
+.header{
+  background-color: black;
+  height: 140px;
+  width: 100%;
+  display: block;
+  position: fixed;
+  
+}
+li, a, button{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  
+}
+/*LOGO STYLING: CURSOR APPEARS WHEN HOVERING */
+.logo{
+  cursor: pointer;
+  
+}
+/*NAV LINK STYLING */
+.nav__links{
+  list-style: none;
+
+}
+.nav__links li{
+  display: inline-block;
+  padding: 0px 10px;
+  
+}
+.nav__links li a{
+  transition: all 0.3s ease 0s;
+
+}
+
+.nav__links li a:hover{
+  color: #1BA1FC;
+
+}
+/*BUTTON STYLING */
+button{
+  padding: 9px 20px;
+  background-color: #1BA1FC;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  flex: 1;
+}
+
+button:hover{
+  background-color: rgba(0, 156, 217, 0.5);
+}
+/*================================EDITOR================================*/
+input{ /*style inputs editor*/
+  background-color:#1BA1FC;
+  border: 2px white;
+  border-radius: 5px;
+  transition: all 0.3s ease 0s;
+  width: fit-content;
+  padding: 5px;
+}
+input:hover{
+  cursor: pointer;
+  background-color: rgba(0, 156, 217, 0.5);
+}
+
+.caret { /*styling for caret from tags*/
+  display: inline-block;
+  width: 0px;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-bottom: 4px solid;
+  border-right: 4xp solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.awesomplete > ul{  /*styling for asomplete dropdown tag CPUC codes*/
+  overflow-y: scroll;
+  height: auto;
+  max-height: 100px;
+  width: 50px;
+  background: rgb(39, 135, 199);
+  background-color:1BA1FC;
+
+}
+
+fieldset {
+  border-radius: 6px;
+  border: solid 2px white;
+
+}
+legend {
+  font-size: 1.2510em;
+  padding: 0 .25em;
+  color:black;
+}
+
+#form__input {
+  width: 100em;
+}
+
+.tag i {
+  font-size: 17px;
+  color:white;
+  margin-left: 5px;
+}
+
+@import url('https://kodhus.com/kodhus-ui/kodhus-0.1.0.min.css');
+
+
+.tag-container input {
+  padding: 5px;
+  font-size: 17px;
+  border: 2;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  color:white;
+  flex: 1;
+}
+
+.tag-container .tag {
+  height: 26px;
+  margin: 5px;
+  padding: 5px 6px;
+  border-radius: 5px;
+  background:#1BA1FC;
+  display: flex;
+  align-items: center;
+  color: white;
+  cursor: default;
+  overflow: scroll;
+}
+
+.tag-container {
+  background: gray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: black;
+  padding: 5px;
+}
+#editor-container{ 
+  color: white;
+  overflow: scroll;
+  height: 180px;
+}
+
+.Editor{
+  display: inline-block;
+  align-items: center;
+  background-color: black;
+  border-radius: 20px;
+  position: fixed;
+  padding: 25px;
+  margin-left: 11%;
+  margin-top: 1.8%;
+  width: 75%;
+  font-size: 19px;
+}

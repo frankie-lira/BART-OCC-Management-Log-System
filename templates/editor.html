@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='/img/favicon.png') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BART - OCC Journal Entry Log</title>
+
+    <!-- Stylesheets -->
+
+    <!-- awesomplete Stylesheet - -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css"/>
+
+    <!-- quill - theme included stylesheets -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+
+     <!-- local Stylesheet -->
+     <link rel="stylesheet" href= "{{ url_for('static', filename='myStyle.css') }}"> <!-- refrence to local CSS using flask-->
+
+     <style>
+  
+        body{
+            background-image: url("{{ url_for('static', filename='/img/bart3.jpeg') }}");
+            background-attachment: fixed;
+            background-size: 100% 100%; 
+            
+        }
+
+     </style>
+
+</head>
+
+<body onload="">
+
+    <div class="header">
+        <div class="navbar">
+            <div class="logo" onclick="window.location.href='{{url_for('viewlog')}}'">
+                <img src="{{ url_for('static', filename='/img/bart_logo.svg') }}" />
+            </div>
+    
+        <div class="nav__links">
+            <ul>
+                <li><a href="{{ url_for('viewlog')}}">View Logs</a></li>
+            </ul>
+        </div>
+        <div class="nav__buttons">
+    
+        <a href="{{ url_for('profile', username=current_user.username)}}"><button>Profile</button></a>
+        <a href="{{ url_for('logout')}}"><button>Logout</button></a>
+        
+        </div>
+    </div>
+
+    <div class="Editor">
+        
+    <!-- buttons to begin or end working day -->
+    <button id="start-working-day" onclick="workingDay(2)">Begin Workinng Day</button> <!-- endworkingDay function is found in myScript.js -->
+    <button id="end-working-day" onclick="workingDay(1)">End Working Day</button><br><br>
+
+    <!-- beginning of form  -->
+    <form id = "editor-form" action = "http://localhost:5000/registerlog" method = "post">
+
+        <!-- time label and input -->
+        <label style="color: white;" for="time">Time:</label>
+        <!-- input-time class is used to activate cleave library -->
+        <input type="text" id="time" name="time" class="input-time" size="6" style="color: white; font-size: 19px;" ><br><br>  <!-- break tags for proper spacing -->
+    
+         <!-- refrence label and input -->
+        <label style="color: white;" for="refrence">Refrence:</label>
+         <!-- input-ref class is used to activate cleave library -->
+        <input type="text" id="refrence" name="refrence" class="input-ref" size="6" style="color:white; font-size: 19px;"><br><br>
+    
+        <!-- description label and input -->
+        <label style="color: white;" >Description:</label>
+        <input name="about" type="hidden"> <!-- we assign the contents of the quill editor to this hidden input -->
+        <!-- editor-container id is used to create text editor with quill.js library | see myScript.js for initlization -->                       <!-- -->
+        <div id="editor-container" style="color: white; font-size: medium;" ></div><br><br>
+    
+        <!-- tags label and input -->
+        <label for="tags" style="color: white;" >Tags:</label>
+        <!-- awesomeplete class is used to create autocomplete functionality with awesomplete widget -->
+        <input type="text" id="tags" name="tags" class="awesomplete" size="30"><br><br>
+    
+        <!-- bpd label and input -->
+        <label for="bpd"  style="color: white;" >BPD:</label>
+        <input type="checkbox" id="bpd" name="bpd"><br><br>
+    
+        <!-- submit button to submit log -->
+        <input type="submit" value="Submit" style="color: white;font-size:medium;" >
+    
+    <!-- end of form -->
+    </form>
+
+    </div>
+
+    <!--Libraries and Local Scripts-->
+
+    <!-- main quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+    <!-- awesome complete library -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.js"></script>
+
+    <!-- cleave library --> <!--used to control user input for date and refrence -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+
+    <!-- local javaScipt file -->
+    <script src="{{url_for('static', filename='myScript.js')}}"></script> <!-- refrence to javaScript using Flask-->
+   
+</body>
+
+</html>

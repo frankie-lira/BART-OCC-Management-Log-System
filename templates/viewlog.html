@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='/img/favicon.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='viewlog.css') }}">
+    <script src="{{url_for('static', filename='recData.js')}}"></script> <!-- refrence to javaScript through Flask-->
+    <script src="{{url_for('static', filename='viewlog.js')}}"></script>
+    <script src="https://kit.fontawesome.com/95fc5548db.js" crossorigin="anonymous"></script>
+    <script> function getAllLogs()</script>
+
+ 
+    <style>
+     body{
+            background-image: url("{{ url_for('static', filename='/img/BART.jpg') }}");
+            background-attachment: fixed;
+            background-size: 100% 100%; 
+            
+        }
+        </style>
+
+    <div class="header">
+        <div class="navbar">
+            
+          <div class="logo" onclick="{{url_for('viewlog')}}">
+            <img src="{{ url_for('static', filename='/img/bart_logo.svg') }}" />
+        </div>
+        
+        <div class="nav__links">
+            <ul>
+                <li><a href="{{url_for('editor')}}">New Log</a></li>
+                <li><a href="{{url_for('viewlog')}}">Current Logs</a></li>
+                <li><a href="javaScript: getAllLogs()">View Logs</a></li>
+            </ul>
+            </div>
+            
+            
+            <div class="nav__buttons">
+                <a href="{{ url_for('profile', username=current_user.username)}}"><button>Profile</button></a>
+                <a href="{{ url_for('logout')}}"><button>Logout</button></a>
+            </div>
+        </div>
+    </div>
+</head>
+
+
+<div class="wrapper">
+  <div onload = "todaysLog(); setTimeout(displayDate, 1000);"></div>
+    
+    
+<div class="button-log-bar">
+    <div class="view-logs-calendar-button">
+     <input type="date" id="logDay" value="2021-12-06" min="2021-12-01" max="2021-12-31">
+      <button type="button" id = "myBtn" onclick="logCalendar(); setTimeout(displayDate, 3000);">View Logs (Calendar)</button>
+   </div>
+
+    <div class="today-log-button">
+     <button type="button" onclick="todaysLog(); setTimeout(displayDate, 3000);">Todays Log</button>
+    </div>
+    
+    <div class="all-logs-button">
+      <button class="all-logs-button-label" type="button" onclick="getAllLogs(); setTimeout(displayDate, 3000);">All Logs</button>
+    </div>
+
+    <div class="add-new-button">
+      <button class="add-new-button-label">
+        <a href="{{url_for('editor')}}">New Log</a>
+      </button>
+  
+      <div class="add-new-button-icon">
+        <i class="fa fa-plus"></i>
+      </div>
+  
+    </div>
+  </div>
+  
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          <input type="text" class="search-input" placeholder="Log ID">
+        </th>
+
+        <th>
+          <input type="text" class="search-input" placeholder="Managers">
+        </th>
+
+        <th>
+          <input type="text" class="search-input" placeholder="Description">
+        </th>
+
+        <th>
+          <input type="text" class="search-input" placeholder="Time">
+        </th>
+
+        <th>
+          <input type="text" class="search-input" placeholder="Revenue Date">
+        </th>
+        <th>
+            <input type="text" class="search-input" placeholder="BPD">
+        </th>
+        <th>
+          <input type="text" class="search-input" placeholder="Tags">
+        </th>
+        <th>
+            <input type="text" class="search-input" placeholder="References">
+        </th>
+        <th>
+          <input type="text" class="search-input" placeholder="Attachments">
+        </th>
+      </tr>
+    </thead>
+    <tbody id="display">
+    </tbody>
+  </table>
+</div>
+</div>
+
+</html>

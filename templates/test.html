@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+  <script src="{{url_for('static', filename='recData.js')}}"></script> <!-- refrence to javaScript through Flask-->
+
+<body>
+
+  <h1>Testing Page</h1>
+
+  <input type="date" id="logDay" value="2021-12-06" min="2021-12-01" max="2021-12-31">
+
+  <button type="button" onclick="logCalendar();">View Logs (Calander)</button>
+  <button type="button" onclick="todaysLog();">Todays Log</button>
+  <button type="button" onclick="getAllLogs();">All Logs</button>
+
+  <p id="display"></p>
+  
+</body>
+</html>

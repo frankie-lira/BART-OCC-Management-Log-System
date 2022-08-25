@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <link rel="icon" href="{{ url_for('static', filename='/img/favicon.png') }}">
+    <title>Register Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+  </head>
+
+  <body>
+    <style>
+      body {
+        background-image: url("{{ url_for('static', filename='/img/BART.jpg') }}");
+        background-repeat: no-repeat;
+        background-attachment: fixed;  
+        background-size: cover;
+        font-family: "Montserrat", sans-serif;
+      }
+      
+    </style>
+      
+    <div class="login">
+      <div class="login-screen">
+        <div class="logo">
+          <img src="{{ url_for('static', filename='/img/bart_logo.svg') }}" />
+        </div>
+        
+        <div class="app-title">
+          <h1>Register</h1>
+        </div>
+        
+        <div class="login-form">
+          <div class="control-group">
+            <form action="" method="POST">
+              {{ form.hidden_tag() }}
+              {{ form.username }}
+              {{ form.email }}
+              {{ form.password }}
+              {{ form.submit }}
+              <br>
+
+              <a href="{{url_for('login')}}" style="color: rgba(0, 156, 217, 1);  font-size: x-small; margin-top: 30px ;"> Already have an account? Login</a>
+
+            </form>
+    
+
+            <!–– Python conditionals & loops ––> 
+            {% if error %}
+            <p class="error"><strong>Error:</strong> {{ error }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
